@@ -5,8 +5,8 @@ var express = require('express'),
     users = require('./users'),
     app = express();
 
-jira.config.username = process.argv[2];
-jira.config.password = process.argv[3];
+jira.config.username = (process.env.JIRA_USER) ? process.env.JIRA_USER : process.argv[2];
+jira.config.password = (process.env.JIRA_PASSWORD) ? process.env.JIRA_PASSWORD : process.argv[3];
 
 passport.use(new BasicStrategy({}, users.check));
 app.use(passport.initialize());
