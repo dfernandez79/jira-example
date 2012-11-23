@@ -1,13 +1,6 @@
 A simple example that exposes Mulesoft JIRA though a simple web API.
 
-**Before running** the example you need to:
-
-1. Generate server keys (since the server uses HTTPS):
-       
-        cd keys
-        ./generate.sh
-        
-2. Install the required node.js modules:
+**Before running** the example you need to install the required node.js modules:
 
         npm install
 
