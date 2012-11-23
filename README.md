@@ -1,9 +1,27 @@
-A simple example that exposes Mulesoft JIRA though a simple REST API.
+A simple example that exposes Mulesoft JIRA though a simple web API.
 
-To run this example you need to pass the user name and password to connect to JIRA:
+**Before running** the example you need to:
 
-      npm install
+1. Generate server keys (since the server uses HTTPS):
+       
+        cd keys
+        ./generate.sh
+        
+2. Install the required node.js modules:
+
+        npm install
+
+
+Then run this example you need to pass the user name and password to connect to JIRA. You can do this in two ways:
+
+Using the command line:
+
       node app.js jirauser password
 
+Or using environment variables:
 
-You need to run `npm install` only the first time to get the required Node.js modules.
+      export JIRA_USER=user
+      export JIRA_PASSWORD=pass
+      node app.js
+
+By default the server listen into the port 9090, but you can change that by setting the `PORT` environment variable.

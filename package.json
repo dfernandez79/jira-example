@@ -6,8 +6,6 @@
     "dependencies": {
         "express": "3.x",
         "restler": "*",
-        "passport": "*",
-        "passport-http": "*",
         "q": "0.8.x",
         "underscore": "*"
     }

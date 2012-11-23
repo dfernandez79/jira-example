@@ -1,9 +1,14 @@
 var express = require('express'),
-    basicAuthentication = require('./security/basicAuthentication.js'),
+    users = require('./users'),
     issueResources = require('./resources/issues.js'),
-    app = express();
+    https = require('https'),
+    fs = require('fs'),
+    app = express(),
+    port = (process.env.PORT) ? process.env.PORT : 9090;
 
-basicAuthentication(app);
+app.use(express.compress());
+app.use(express.basicAuth(users.check));
+app.use(express.bodyParser());
 
 issueResources(app, {
     jira: {
@@ -12,4 +17,9 @@ issueResources(app, {
     }
 });
 
-app.listen(process.env.PORT);
+https.createServer({
+    key: fs.readFileSync('keys/server-key.pem'),
+    cert: fs.readFileSync('keys/server-cert.pem')
+}, app).listen(port);
+
+console.log("Running on port " + port);
