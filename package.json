@@ -8,5 +8,9 @@
         "restler": "*",
         "q": "0.8.x",
         "underscore": "*"
+    },
+    "engines": {
+        "node": "0.8.x",
+        "npm": "1.1.x"
     }
 }
