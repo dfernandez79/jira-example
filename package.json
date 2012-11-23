@@ -1,14 +1,14 @@
 {
-  "name": "jira-example",
-  "description": "An example application that access to JIRA using a REST API",
-  "version": "0.0.1",
-  "private": true,
-  "dependencies": {
-    "express": "3.x",
-    "restler": "*",
-    "passport": "*",
-    "passport-http": "*",
-    "q": "0.8.x",
-    "underscore": "*"
-  }
+    "name": "jira-example",
+    "description": "An example application that access to JIRA using a REST API",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "express": "3.x",
+        "restler": "*",
+        "passport": "*",
+        "passport-http": "*",
+        "q": "0.8.x",
+        "underscore": "*"
+    }
 }

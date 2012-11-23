@@ -8,29 +8,29 @@ function JiraClient(config) {
 }
 
 JiraClient.prototype = {
-    get: function(path) {
+    get: function (path) {
         var defer = Q.defer(),
             request = restler.get(this.urlRoot + '/rest/api/2' + path, {
                 username: this.username,
                 password: this.password
             });
 
-        request.on('complete', function(data) {
+        request.on('complete',function (data) {
             defer.resolve(data);
         }).on('fail', function () {
-            defer.reject();
-        });
+                defer.reject();
+            });
 
         return defer.promise;
     },
 
-    findIssue: function(id) {
+    findIssue: function (id) {
         return this.get('/issue/' + id + '?fields=summary,description,status');
     }
 };
 
 module.exports = {
-    createClient: function(config) {
+    createClient: function (config) {
         return new JiraClient(config);
     }
 };

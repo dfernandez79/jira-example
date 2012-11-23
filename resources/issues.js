@@ -15,15 +15,14 @@ function sendErrorResponse(error, res) {
     res.status(500);
 }
 
-module.exports = function(app, config) {
+module.exports = function (app, config) {
     var client = jira.createClient(_.defaults((config) ? config.jira : {}, {urlRoot: 'http://www.mulesoft.org/jira'}));
 
-    app.get('/issues/:id', function(req, res) {
-        client.findIssue(req.params.id).then(function(issue) {
+    app.get('/issues/:id', function (req, res) {
+        client.findIssue(req.params.id).then(function (issue) {
             res.json(jsonResponseFromJiraIssue(issue));
-        }).fail(function(error) {
-            sendErrorResponse(error, res);
-        });
+        }).fail(function (error) {
+                sendErrorResponse(error, res);
+            });
     });
 };
-
