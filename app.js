@@ -1,8 +1,6 @@
 var express = require('express'),
     users = require('./users'),
     issueResources = require('./resources/issues.js'),
-    https = require('https'),
-    fs = require('fs'),
     app = express(),
     port = (process.env.PORT) ? process.env.PORT : 9090;
 
@@ -17,9 +15,6 @@ issueResources(app, {
     }
 });
 
-https.createServer({
-    key: fs.readFileSync('keys/server-key.pem'),
-    cert: fs.readFileSync('keys/server-cert.pem')
-}, app).listen(port);
+app.listen(port);
 
 console.log("Running on port " + port);
